@@ -1,4 +1,3 @@
-import "../index.css";
 import PropTypes from "prop-types";
 
 function Header({ title }) {
@@ -10,7 +9,7 @@ function Header({ title }) {
 }
 
 Header.defaultProps = {
-  title: "Feedback App", 
+  title: "Feedback App",
 };
 
 Header.propTypes = {
