@@ -1,5 +1,6 @@
-import FeedbackItem from "./FeedbackItem";
 import PropTypes from "prop-types";
+import { motion, AnimatePresence } from "framer-motion";
+import FeedbackItem from "./FeedbackItem";
 
 function FeedbackList({ feedback, handleDelete }) {
   if (!feedback.length) {
@@ -7,14 +8,29 @@ function FeedbackList({ feedback, handleDelete }) {
   }
 
   return (
-    <>
-      <div className="feedback-list">
+    <div className="feedback-list">
+      <AnimatePresence>
         {feedback.map((i) => (
-          <FeedbackItem key={i.id} item={i} handleDelete={handleDelete} />
+          <motion.div
+            key={i.id}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <FeedbackItem key={i.id} item={i} handleDelete={handleDelete} />
+          </motion.div>
         ))}
-      </div>
-    </>
+      </AnimatePresence>
+    </div>
   );
+
+  // return (
+  //     <div className="feedback-list">
+  //       {feedback.map((i) => (
+  //         <FeedbackItem key={i.id} item={i} handleDelete={handleDelete} />
+  //       ))}
+  //     </div>
+  // );
 }
 
 FeedbackList.propTypes = {
