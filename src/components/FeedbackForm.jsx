@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
+// import { v4 as uuidv4 } from "uuid";
 import Card from "./shared/Card";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
@@ -39,7 +39,7 @@ function FeedbackForm() {
         updateFeedback(feedbackEdit.item.id, { rating, text });
       } else {
         addFeedback({
-          id: uuidv4(),
+          // id: uuidv4(),
           rating,
           text,
         });
